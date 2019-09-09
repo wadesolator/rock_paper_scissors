@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+</head>
+<body>
+  <script>
+    // Your JavaScript goes here!
+    function computerPlay() {
+        let myRPS = ['rock', 'paper', 'scissors'];
+        let randomValue = myRPS[Math.floor(Math.random() * myRPS.length)];
+        return randomValue;
+    }
+    function playRound() {
+        let result = ''
+        let playerSelection = 'paper'
+        let computerSelection = computerPlay()
+        if (playerSelection.toLowerCase() == computerSelection) {
+            result = 'draw';
+        }
+        else if (playerSelection.toLowerCase() == 'rock' && computerSelection == 'paper') {
+            result = 'player lose';
+            loseCount++;
+        }
+        else if (playerSelection.toLowerCase() == 'rock' && computerSelection == 'scissors') {
+            result = 'player win';
+            winCount++;
+        }
+        else if (playerSelection.toLowerCase() == 'paper' && computerSelection == 'scissors') {
+            result = 'player lose';
+            loseCount++;
+        }
+        else if (playerSelection.toLowerCase() == 'paper' && computerSelection == 'rock') {
+            result = 'player win';
+            winCount++;
+        }
+        else if (playerSelection.toLowerCase() == 'scissors' && computerSelection == 'rock') {
+            result = 'player lose';
+            loseCount++;
+        }
+        else if (playerSelection.toLowerCase() == 'scissors' && computerSelection == 'paper') {
+            result = 'player win';
+            winCount++;
+        }
+        else {
+            result = 'error result';
+        }
+        return result;
+    }
+    function game() {
+        if (winCount == 3) {
+            console.log('PLAYER WINS');
+        }
+        else if (loseCount == 3) {
+            console.log('PLAYER LOSE');
+        }
+        else {
+            console.log('continue match!');
+        }
+    }
+    let winCount = 0
+    let loseCount = 0
+    while (winCount < 3 && loseCount < 3) {
+        playRound();
+        console.log('player win = ' + winCount);
+        console.log('computer win = ' + loseCount);
+        game();
+    }
+  </script>
+</body>
+</html>
