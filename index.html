@@ -13,7 +13,7 @@
     }
     function playRound() {
         let result = ''
-        let playerSelection = 'paper'
+        let playerSelection = prompt('select your hand!')
         let computerSelection = computerPlay()
         if (playerSelection.toLowerCase() == computerSelection) {
             result = 'draw';
@@ -43,7 +43,7 @@
             winCount++;
         }
         else {
-            result = 'error result';
+            console.log('chose the right hand!')
         }
         return result;
     }
